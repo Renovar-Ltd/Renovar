@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Copyable from "./Copyable";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -29,7 +30,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="py-8 md:py-10 lg:py-12 bg-gradient-to-b from-white to-agri-cream"
+      className="pt-8 md:pt-10 lg:pt-12 pb-24 md:pb-48 lg:pb-56 bg-gradient-to-b from-white to-agri-cream"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
@@ -56,10 +57,20 @@ export default function Contact() {
               </div>
             </div>
 
+            {/* Options Header */}
+            {/* <div className="text-center mb-4 md:mb-6">
+              <p className="text-agri-brown text-sm md:text-base font-medium">
+                Choose how you'd like to reach us:
+              </p>
+            </div> */}
+
             {/* Content Grid */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
               {/* Contact Form */}
-              <div>
+              <div className="glass rounded-lg p-4 md:p-6 border border-agri-light-green/30">
+                <h3 className="text-agri-green font-semibold text-lg mb-3 text-center">
+                  Fill Out the Form
+                </h3>
                 <form onSubmit={handleSubmit} className="space-y-3">
                   <div>
                     <label
@@ -127,50 +138,55 @@ export default function Contact() {
                 </form>
               </div>
 
-              {/* Contact Details */}
-              <div className="flex flex-col justify-center space-y-3">
-                {/* <div className="p-4">
-                  <div className="flex items-start space-x-3">
-                    <div className="text-2xl">📍</div>
-                    <div>
-                      <h3 className="font-semibold text-agri-green mb-1 text-base">
-                        Location
-                      </h3>
-                      <p className="text-agri-brown text-xs md:text-sm">
-                        Farm Location Details
-                      </p>
-                    </div>
-                  </div>
-                </div> */}
-                <div className="p-4">
-                  <div className="flex items-start space-x-3">
-                    <div className="text-2xl">📧</div>
-                    <div>
-                      <h3 className="font-semibold text-agri-green mb-1 text-base">
-                        Email
-                      </h3>
-                      <a
-                        href="mailto:admin@renovarfarms.com"
-                        className="text-agri-brown text-xs md:text-sm hover:text-agri-green transition-colors underline"
-                      >
-                        admin@renovarfarms.com
-                      </a>
-                    </div>
-                  </div>
+              {/* OR Divider for Mobile */}
+              <div className="lg:hidden flex items-center justify-center my-2">
+                <div className="flex items-center w-full">
+                  <div className="flex-1 border-t border-agri-light-green/50"></div>
+                  <span className="px-4 text-agri-green font-semibold text-sm">
+                    OR
+                  </span>
+                  <div className="flex-1 border-t border-agri-light-green/50"></div>
                 </div>
-                <div className="p-4">
-                  <div className="flex items-start space-x-3">
-                    <div className="text-2xl">📞</div>
-                    <div>
-                      <h3 className="font-semibold text-agri-green mb-1 text-base">
-                        Phone
-                      </h3>
-                      <a
-                        href="tel:+234"
-                        className="text-agri-brown text-xs md:text-sm hover:text-agri-green transition-colors underline"
+              </div>
+
+              {/* Contact Details - Email Option */}
+              <div className="flex flex-col justify-center">
+                <div className="glass rounded-lg p-4 md:p-6 border border-agri-light-green/30 transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-agri-green/30 hover:border-agri-light-green">
+                  {/* <h3 className="text-agri-green font-semibold text-lg mb-3 text-center">
+                    Send Us an Email
+                  </h3> */}
+                  <div className="text-center space-y-4">
+                    <p className="text-agri-brown text-sm md:text-base">
+                      Prefer to write directly? Send us an email at:
+                    </p>
+                    <div className="flex flex-col items-center space-y-3">
+                      <div className="flex items-center space-x-3">
+                        <div className="text-3xl">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-8 w-8 text-agri-green"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                          >
+                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                          </svg>
+                        </div>
+                        <Copyable text="admin@renovarfarms.com">
+                          <a
+                            href="mailto:admin@renovarfarms.com"
+                            className="text-agri-green text-base md:text-lg font-semibold hover:text-agri-light-green transition-colors underline"
+                          >
+                            admin@renovarfarms.com
+                          </a>
+                        </Copyable>
+                      </div>
+                      {/* <a
+                        href="mailto:admin@renovarfarms.com"
+                        className="inline-block bg-agri-green text-white py-2 px-6 rounded-lg font-semibold hover:bg-agri-light-green transition-all transform hover:scale-105 text-sm"
                       >
-                        +234
-                      </a>
+                        Open Email Client
+                      </a> */}
                     </div>
                   </div>
                 </div>
